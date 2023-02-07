@@ -12,14 +12,15 @@ class TronGame extends FlameGame with HasTappables {
   List<List<bool>> isOccupied = List.generate(MySharedPreferences.tronGridSize, (index) => List.generate(MySharedPreferences.tronGridSize, (index) => false));
   MyGame myGame = MyGame();
 
-  /*@override
+  @override
   Future<void>? onLoad() {
     add(Background());
     add(Joystick());
     add(myGame);
     overlays.add("SettingsButton");
-    return super.onLoad();
-  }*/
+    return null;
+    //return super.onLoad();
+  }
 
   void gameOver() {
     overlays.remove('PlayPauseButton');

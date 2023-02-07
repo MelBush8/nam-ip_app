@@ -15,14 +15,15 @@ class SnakeLang extends PositionComponent with HasGameRef<SnakeGame> {
 
   SnakeLang({required this.headPosition});
 
- /* @override
+  @override
   Future<void>? onLoad() {
     final double caseSize = (gameRef.size.x - GameBackground.padding) / GameBackground.nbCase;
     width = caseSize;
     height = caseSize;
     changePosition();
-    return super.onLoad();
-  }*/
+   return null;
+   // return super.onLoad();
+  }
 
   void changePosition() {
     final double caseSize = (gameRef.size.x - GameBackground.padding) / GameBackground.nbCase;
