@@ -7,7 +7,6 @@ import 'package:nam_ip_museum_web/games/snake/game/game_background.dart';
 import 'package:nam_ip_museum_web/games/snake/snake_game.dart';
 
 class SnakeLang extends PositionComponent with HasGameRef<SnakeGame> {
-
   int headPosition;
 
   int index = 0;
@@ -17,20 +16,23 @@ class SnakeLang extends PositionComponent with HasGameRef<SnakeGame> {
 
   @override
   Future<void>? onLoad() {
-    final double caseSize = (gameRef.size.x - GameBackground.padding) / GameBackground.nbCase;
+    final double caseSize =
+        (gameRef.size.x - GameBackground.padding) / GameBackground.nbCase;
     width = caseSize;
     height = caseSize;
     changePosition();
-    return super.onLoad();
+    return null;
+    //return super.onLoad();
   }
 
   void changePosition() {
-    final double caseSize = (gameRef.size.x - GameBackground.padding) / GameBackground.nbCase;
+    final double caseSize =
+        (gameRef.size.x - GameBackground.padding) / GameBackground.nbCase;
     int x = headPosition % GameBackground.nbCase;
     int y = headPosition ~/ GameBackground.nbCase;
     position = Vector2(
-      GameBackground.padding/2 + x * caseSize,
-      GameBackground.padding/2 + y * caseSize,
+      GameBackground.padding / 2 + x * caseSize,
+      GameBackground.padding / 2 + y * caseSize,
     );
     switch (gameRef.snakeDirection) {
       case Direction.up:
@@ -52,15 +54,16 @@ class SnakeLang extends PositionComponent with HasGameRef<SnakeGame> {
 
   @override
   void render(Canvas canvas) {
-    final double caseSize = (gameRef.size.x - GameBackground.padding) / GameBackground.nbCase;
-    final double r = caseSize/5.5;
+    final double caseSize =
+        (gameRef.size.x - GameBackground.padding) / GameBackground.nbCase;
+    final double r = caseSize / 5.5;
     final Paint redPaint = BasicPalette.red.paint();
-    switch(gameRef.snakeDirection) {
+    switch (gameRef.snakeDirection) {
       case Direction.right:
         Path path = Path();
         path.addPolygon([
-          Offset(0, (width / 2) - r/1.5),
-          Offset(0, (width / 2) + r/1.5),
+          Offset(0, (width / 2) - r / 1.5),
+          Offset(0, (width / 2) + r / 1.5),
           Offset(0 + width / 1.5, (width / 2) + r),
           Offset(0 + width / 2, (width / 2)),
           Offset(0 + width / 1.5, (width / 2) - r),
@@ -70,8 +73,8 @@ class SnakeLang extends PositionComponent with HasGameRef<SnakeGame> {
       case Direction.up:
         Path path = Path();
         path.addPolygon([
-          Offset((width / 2) - r/1.5, width),
-          Offset((width / 2) + r/1.5, width),
+          Offset((width / 2) - r / 1.5, width),
+          Offset((width / 2) + r / 1.5, width),
           Offset((width / 2) + r, width - height / 1.5),
           Offset((width / 2), width - height / 2),
           Offset((width / 2) - r, width - height / 1.5),
@@ -81,8 +84,8 @@ class SnakeLang extends PositionComponent with HasGameRef<SnakeGame> {
       case Direction.down:
         Path path = Path();
         path.addPolygon([
-          Offset((width / 2) - r/1.5, 0),
-          Offset((width / 2) + r/1.5, 0),
+          Offset((width / 2) - r / 1.5, 0),
+          Offset((width / 2) + r / 1.5, 0),
           Offset((width / 2) + r, height / 1.5),
           Offset((width / 2), height / 2),
           Offset((width / 2) - r, height / 1.5),
@@ -92,8 +95,8 @@ class SnakeLang extends PositionComponent with HasGameRef<SnakeGame> {
       case Direction.left:
         Path path = Path();
         path.addPolygon([
-          Offset(0 + width, (width / 2) - r/1.5),
-          Offset(0 + width, (width / 2) + r/1.5),
+          Offset(0 + width, (width / 2) - r / 1.5),
+          Offset(0 + width, (width / 2) + r / 1.5),
           Offset(0 + width - width / 1.5, (width / 2) + r),
           Offset(0 + width - width / 2, (width / 2)),
           Offset(0 + width - width / 1.5, (width / 2) - r),
